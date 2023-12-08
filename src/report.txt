@@ -1,0 +1,60 @@
+1.write a specification for each of the methods you implemented in the last lab
+  -preconditions
+  -post conditions
+  -side effects
+2.review the code you implemented in the last lab a PDF report of what could be improved
+ (and perhaps what you've already done well)
+
+ ////////////////////////////////////////////////////////////////////////////////////////////////
+
+1.applyEffect(GameCharacter character) StrengthRing,Glove;
+Preconditions:
+-character ไม่เป็น null
+Postcondititons:
+-ถ้า character = warrior และได้รับ StrengthRing ค่า strength และ slashDamageBonus จะเพิ่มขึ้น
+-ถ้า character = wizard และได้รับ Glove ค่า intelligent และ firebalBonus จะเพิ่มขึ้น
+Side Effects:
+-ไม่มี
+2.dmgTaken(double damage) ใน GameCharacter:
+Preconditions:
+-ถ้าดาเมจที่ได้รับมากกว่า Hp dmgTaken=0
+Postconditions:
+-ค่า baseHp จะลดลงตาม damage และ ไม่น้อยกว่า 0.
+-ถ้า baseHp ลดลงจนเป็น 0 จะแสดงข้อความ "Wizard death...".
+Side Effects:
+-มีถ้าหาก เปลี่ยน baseHp กระทันหัน
+3.PVP(Wizard wizard) ใน Warrior:
+Preconditions:
+-wizard ไม่เป็น null.
+Postconditions:
+-คำนวณความเสียหายที่ Warrior และ Wizard ได้รับจากการโจมตีของกันและกัน.
+ แสดงข้อความเกี่ยวกับการโจมตีและการเสียหาย.
+Side Effects:
+-แสดงข้อความ
+4.printStats() ใน Warrior:
+ Preconditions:
+ -ไม่มี.
+ Postconditions:
+ -แสดงข้อมูลสถิติปัจจุบันของ Warrior.
+ Side Effects:
+ -แสดงข้อความ.
+5.calculateAtk() และ updateStats():
+Preconditions:
+-ไม่มี
+Postconditions:
+-คำนวณ Atk จาก baseStr, equippedSword, และ baseDef ใน calculateAtk().
+-อัปเดตค่า baseDef โดยเพิ่ม equippedHeavyArmor ใน updateStats().
+-Side Effects:
+-การคำนวณและอัปเดตข้อมูล.
+ุ6.equipAccessory(Accessory accessory):
+Preconditions:
+-accessory ต้องไม่เป็น null.
+-Postconditions:
+-นำ accessory มาใช้บน Wizard โดยเรียกเมทอด applyEffect() ของ accessory.
+Side Effects:
+-การเรียกใช้ applyEffect() ของ accessory.
+
+Review code
+-ใช้การแบ่ง class และ record ทำให้มีโครงสร้างที่เป็นระเบียบ
+-ควรใช้ final นำหน้า ค่าที่ไม่ต้องการเปลี่ยนแปลงเพื่อรักษาความคงที่ของค่าให้ครบถ้วน
+-บางตัวแปรอย่างเช่น Level ซึ่งเป็นLevelของClass warrior ควรจะ ตั้งเป็นWarriorLevelไปเลย
